@@ -58,4 +58,28 @@ end
 
 ### EMS Interface
 
+The EMS interface is the component dedicated to the communication with the local Energy Management System. Its main purpose is to share the Set-Point that the EMS should handle.
+
+The Interface exposes only the Set-Point corresponding to the current TimeSlot 
+
+**Modbus TCP Interface**
+
+Host: PGUI IP
+Port: 8502
+
+| Address | Field Name | Description |
+| ----- | ----- | -------- |
+| 1000 | bspP   | Active Power Setpoint |
+| 2000 | bspQ   | Reactive Power Setpoint |
+
+**HTTP Interface**
+
+Host: PGUI IP
+Port: 8000
+
+| Method | URL | Description |
+| ----- | ----- | -------- |
+| GET | http://<PGUI_IP>:8000   | If a setpoint is present the statusCode is 200 and the response body is in the form `{"bspP":100,"bspQ":100}`. If no setpoint is available, the status code is 404. |
+  
+
 ### BAL Integration Layer
