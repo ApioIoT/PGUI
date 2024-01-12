@@ -64,8 +64,8 @@ The Interface exposes only the Set-Point corresponding to the current TimeSlot
 
 **Modbus TCP Interface**
 
-Host: PGUI IP
-Port: 8502
+- Host: PGUI IP
+- Port: 8502
 
 | Address | Field Name | Description |
 | ----- | ----- | -------- |
@@ -74,8 +74,8 @@ Port: 8502
 
 **HTTP Interface**
 
-Host: PGUI IP
-Port: 8000
+- Host: PGUI IP
+- Port: 8000
 
 | Method | URL | Description |
 | ----- | ----- | -------- |
