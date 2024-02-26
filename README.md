@@ -78,8 +78,10 @@ The Interface exposes only the Set-Point corresponding to the current TimeSlot
 
 | Address | Field Name | Description |
 | ----- | ----- | -------- |
-| 1000 | bspP   | Active Power Setpoint |
-| 2000 | bspQ   | Reactive Power Setpoint |
+| 1000 | bspP Current   | Current Active Power Setpoint |
+| 1100 | bspP Next   | Next Active Power Setpoint |
+| 2000 | bspQ Current  | Current Reactive Power Setpoint |
+| 2100 | bspQ Next   | Next Reactive Power Setpoint |
 
 **HTTP Interface**
 
