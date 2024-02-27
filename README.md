@@ -50,7 +50,15 @@ end
 
 
 ```
+### Hardware Requirements
 
+In order to successfuly run the the software components described above, there are some minimum requirements that the hardware platform should satisfy. Due to the nature of the environment in which the PGUI operates, these requirements may vary depending on several factors, mainly on the kind of field devices that must be interfaced.
+
+- The hardware platform (the device) MUST be able to establish a MQTTs connection with the Blockchain Access Layer MQTT Broker. This connection MUST allow the successful communication of all the information described in this document within reasonable time.
+- The hardware platform (the device) MUST be able to establish a MQTTs connection with the DSO Technical Platform MQTT Broker
+- The hardware platform (the device) MUST be able to establish a local connection with the Main Meter (wired or wireless depending on the technology of the Main Meter)
+- The hardware platform (the device) MUST be able to establish a local connection with the local EMS/BMS (wired or wireless depending on the technology of the EMS/BMS). This connection MUST consent the communication of the setpoints from the PGUI to the EMS/BMS. The connection SHOULD also allow the EMS/BMS to gather measurements from the PGUI.
+- The hardware platform (the device) MUST be able to store data that should be sent to the Blockchain Access Layer for a period of at least 48 hours, in order to preserve data in case of network partitions between the PGUI and the BAL.
 
 ### Identity Layer
 
