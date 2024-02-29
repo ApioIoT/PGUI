@@ -1,0 +1,201 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PGUI to BAL Measurements",
+    "description": "This schema defines the schema of the measurements message sent by the PGUI to the Blockchain Access Layer. This message gathers measurements from the main meter.",
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string"
+      },
+      "marketOutcomeId": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "dataTime": {
+        "format": "datetime",
+        "type": "string"
+      },
+      "measurementTime": {
+        "format": "datetime",
+        "type": "string"
+      },
+      "startTime": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "format": "datetime"
+      },
+      "interval": {
+        "type": "number"
+      },
+      "index": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 95
+      },
+      "pod": {
+        "type": "string"
+      },
+      "baselineId": {},
+      "measures": {
+        "type": "object",
+        "properties": {
+          "energy": {
+            "type": "object",
+            "properties": {
+              "absorbedActiveEnergy": {
+                "$ref": "#/$defs/measurement"
+              },
+              "injectedActiveEnergy": {
+                "$ref": "#/$defs/measurement"
+              },
+              "absorbedInductiveReactiveEnergy": {
+                "$ref": "#/$defs/measurement"
+              },
+              "injectedInductiveReactiveEnergy": {
+                "$ref": "#/$defs/measurement"
+              },
+              "absorbedCapacitiveReactiveEnergy": {
+                "$ref": "#/$defs/measurement"
+              },
+              "injectedCapacitiveReactiveEnergy": {
+                "$ref": "#/$defs/measurement"
+              }
+            },
+            "required": [
+              "absorbedActiveEnergy",
+              "injectedActiveEnergy",
+              "absorbedInductiveReactiveEnergy",
+              "injectedInductiveReactiveEnergy",
+              "absorbedCapacitiveReactiveEnergy",
+              "injectedCapacitiveReactiveEnergy"
+            ]
+          },
+          "power": {
+            "type": "object",
+            "properties": {
+              "meanAbsorbedP": {
+                "$ref": "#/$defs/measurement"
+              },
+              "meanInjectedP": {
+                "$ref": "#/$defs/measurement"
+              },
+              "meanAbsorbedQ": {
+                "$ref": "#/$defs/measurement"
+              },
+              "meanInjectedQ": {
+                "$ref": "#/$defs/measurement"
+              },
+              "meanP": {
+                "$ref": "#/$defs/measurement"
+              },
+              "maxP": {
+                "$ref": "#/$defs/measurement"
+              },
+              "minP": {
+                "$ref": "#/$defs/measurement"
+              }
+            },
+            "required": [
+              "meanAbsorbedP",
+              "meanInjectedP",
+              "meanAbsorbedQ",
+              "meanInjectedQ",
+              "meanP",
+              "maxP",
+              "minP"
+            ]
+          }
+        },
+        "required": [
+          "energy",
+          "power"
+        ]
+      },
+      "set-point": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/marketSetPoint"
+        }
+      },
+      "timestamp": {
+        "type": "number"
+      },
+      "blockchain": {
+        "type": "object",
+        "properties": {
+          "sign": {
+            "type": "string"
+          },
+          "did": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "sign",
+          "did"
+        ]
+      }
+    },
+    "required": [
+      "type",
+      "marketOutcomeId",
+      "dataTime",
+      "measurementTime",
+      "startTime",
+      "interval",
+      "index",
+      "pod",
+      "baselineId",
+      "measures",
+      "set-point",
+      "timestamp",
+      "blockchain"
+    ],
+    "$defs": {
+      "measurement": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "n.g."
+            ]
+          }
+        },
+        "required": [
+          "value",
+          "quality"
+        ]
+      },
+      "marketSetPoint": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 95
+          },
+          "marketPUp": {
+            "type": "number"
+          },
+          "marketPDown": {
+            "type": "number"
+          },
+          "marketQUp": {
+            "type": "number"
+          },
+          "marketQDown": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
