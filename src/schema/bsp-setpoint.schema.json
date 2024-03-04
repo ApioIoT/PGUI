@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BSP SetPoint from DSO TP to PGUI",
+    "description": "This is the set-point that the PGUI will forward to the local EMS.",
+    "type": "object",
+    "properties": {
+      "marketOutcomeId": {
+        "type": "string"
+      },
+      "dataTime": {
+        "type": "string"
+      },
+      "startTime": {
+        "type": "string"
+      },
+      "interval": {
+        "type": "number"
+      },
+      "pod": {
+        "type": "string"
+      },
+      "baselineId": {
+        "type": "string"
+      },
+      "power": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "number"
+            },
+            "marketPUp": {
+              "type": "number"
+            },
+            "marketPDown": {
+              "type": "number"
+            },
+            "marketQUp": {
+              "type": "number"
+            },
+            "marketQDown": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "index",
+            "marketPUp",
+            "marketPDown",
+            "marketQUp",
+            "marketQDown"
+          ]
+        }
+      }
+    },
+    "required": [
+      "marketOutcomeId",
+      "dataTime",
+      "startTime",
+      "interval",
+      "pod",
+      "baselineId",
+      "power"
+    ]
+  }

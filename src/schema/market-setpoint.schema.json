@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Market SetPoint from DSO TP to PGUI",
+    "description": "This is the set-point that the PGUI will forward to the BAL, associated with measurements of the same timeslot",
+    "type": "object",
+    "properties": {
+      "marketOutcomeId": {
+        "type": "string"
+      },
+      "dataTime": {
+        "type": "string"
+      },
+      "startTime": {
+        "type": "string"
+      },
+      "interval": {
+        "type": "number"
+      },
+      "pod": {
+        "type": "string"
+      },
+      "baselineId": {
+        "type": "string"
+      },
+      "power": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "number"
+            },
+            "bspP": {
+              "type": "number"
+            },
+            "bspQ": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "index",
+            "bspP",
+            "bspQ"
+          ]
+        }
+      }
+    },
+    "required": [
+      "marketOutcomeId",
+      "dataTime",
+      "startTime",
+      "interval",
+      "pod",
+      "baselineId",
+      "power"
+    ]
+  }

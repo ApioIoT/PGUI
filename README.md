@@ -26,12 +26,12 @@ subgraph PGUI
   IdentityLayer 
   
   MeterInterface -->|Measurements| BALIntegrationLayer
-  DSOInterface --> |Set-points| EMSInterface
+  DSOInterface --> |BSP Set-points| EMSInterface
   
 end
 
 subgraph DSO
-  DSOTechnicalPlatform --> | Data | DSOInterface
+  DSOTechnicalPlatform --> |BSP/Market Set-Points | DSOInterface
 end
 
 subgraph BAL
@@ -39,7 +39,7 @@ subgraph BAL
 end
 
 subgraph LocalEMS
-  EMSInterface --> |Set-Point| FlexibleAssets
+  EMSInterface --> |BSP Set-Point| FlexibleAssets
 end
 
 subgraph LocalMeter
