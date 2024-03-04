@@ -35,7 +35,7 @@ subgraph DSO
 end
 
 subgraph BAL
-  BALIntegrationLayer -->|MQTTS| BlockchainAccessLayer
+  BALIntegrationLayer -->|Measurements,Setpoints,Events| BlockchainAccessLayer
 end
 
 subgraph LocalEMS
