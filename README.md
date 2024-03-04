@@ -102,3 +102,7 @@ The Interface exposes only the Set-Point corresponding to the current TimeSlot
   
 
 ### BAL Integration Layer
+
+The BAL Integration Layer uses credentials to establish a persistent MQTTS connection with the Blockchain Access Layer. Any other interface that wants to forward data to the BAL, must publish messages to the BAL IL. BAL IL will periodically check for messages to send to the BAL and handle offline periods, by storing messages for a configurable amount of time (>= 48 hours).
+
+The BAL IL requires valid credentials to authenticate and connect to the BAL MQTTS broker.
